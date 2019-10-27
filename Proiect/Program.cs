@@ -15,20 +15,20 @@ namespace Proiect
             }
             return v;
         }
-        static string Conversie_10_b1(int n,int b)
+        static string Conversie_10_b1(int n,int b1)
         {
             int r;
             char c;
             StringBuilder sb = new StringBuilder();
             while(n>0)
             {
-                r = n % b;
-                n = n / b;
+                r = n % b1;
+                n = n / b1;
                 if (r < 10) c = (char)('0' + r);
-                else
-                    c = (char)('A' + (r - 10));
+                else c = (char)('A' + (r - 10));
                     sb.Append(c);
             }
+            return(sb.ToString());
         }
         private static string Reverse(string s)
         {
@@ -39,9 +39,9 @@ namespace Proiect
         static void Main(string[] args)
         {
             double m = 0;
-            float  aux,m1=0;
+            float  aux;
             int ok = 0;
-            int b = 0,b1=0,p=0;
+            int b = 0,b1=0;
             string n;
             while (ok == 0)
             {
@@ -76,11 +76,12 @@ namespace Proiect
             }
             Console.Write("Introduceti baza in care vreti sa schimbati numarul:");
             b1 = int.Parse(Console.ReadLine());
-            if (b < 10) Console.WriteLine(Conversie_10_b1(Conversie_b_10(n, b), b1));
+            if (b1 < 10) Console.WriteLine(Conversie_10_b1(Conversie_b_10(n, b), b1));
             else
-            if (b == 10) Console.WriteLine(Conversie_b_10(n, b));
+            if (b1 == 10) Console.WriteLine(Conversie_b_10(n, b));
             else
-            if (b > 10) Console.WriteLine(Reverse(Conversie_10_b1(Conversie_b_10(n, b), b1)));
+            if (b1 > 10) Console.WriteLine(Reverse(Conversie_10_b1(Conversie_b_10(n, b), b1)));
+
             
         }
 
